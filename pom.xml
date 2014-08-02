@@ -125,11 +125,6 @@
       <url>http://oss.sonatype.org/content/repositories/snapshots/</url>
       <uniqueVersion>false</uniqueVersion>
     </snapshotRepository>
-    <site>
-      <id>gforge.inria.fr-site</id>
-      <name>inria</name>
-      <url>scp://scm.gforge.inria.fr/home/groups/spoon/htdocs/mvnsites</url>
-    </site>
   </distributionManagement>
 
   <dependencies>
@@ -310,8 +305,8 @@
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>2.9.1</version>
         <configuration>
-          <minmemory>128m</minmemory>
-          <maxmemory>512</maxmemory>
+          <minmemory>128M</minmemory>
+          <maxmemory>512M</maxmemory>
           <excludePackageNames>spoon.support.*</excludePackageNames>
         </configuration>
         <executions>
