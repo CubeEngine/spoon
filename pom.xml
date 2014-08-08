@@ -370,7 +370,7 @@
         <artifactId>maven-pmd-plugin</artifactId>
         <version>3.1</version>
         <configuration>
-          <linkXref>true</linkXref>
+          <linkXRef>true</linkXRef>
           <sourceEncoding>utf-8</sourceEncoding>
           <minimumTokens>100</minimumTokens>
           <targetJdk>${java.src.version}</targetJdk>
@@ -451,5 +451,4 @@
       </build>
     </profile>
   </profiles>
-
 </project>
