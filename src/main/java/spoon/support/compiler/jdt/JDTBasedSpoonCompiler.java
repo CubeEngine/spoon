@@ -69,7 +69,7 @@ public class JDTBasedSpoonCompiler implements SpoonCompiler {
 
 	// private Logger logger = Logger.getLogger(SpoonBuildingManager.class);
 
-	public static final String CLASSPATH_ELEMENT_SEPARATOR = ":";
+	public static final String CLASSPATH_ELEMENT_SEPARATOR = File.pathSeparator;
 
 	public int javaCompliance = 7;
 
