@@ -382,16 +382,8 @@ public class Launcher {
 		if (getArguments().getString("input") != null) {
 			for (String s : getArguments().getString("input").split(
 					"[" + File.pathSeparatorChar + "]")) {
-				try {
 					inputResources.add(SpoonResourceHelper
 							.createResource(new File(s)));
-				} catch (FileNotFoundException e) {
-					env.report(null, Severity.ERROR,
-							"Unable to add source file : " + e.getMessage());
-					if (env.isDebug()) {
-						logger.debug(e.getMessage(), e);
-					}
-				}
 			}
 		}
 
@@ -617,6 +609,11 @@ public class Launcher {
 	 */
 	public Factory createFactory() {
 		return createFactory(new StandardEnvironment());
+	}
+	
+	/** returns the current factory */
+	public Factory getFactory() {
+		return factory;
 	}
 
 	/**
