@@ -352,9 +352,7 @@ public class JDTTreeBuilder extends ASTVisitor {
 
 	public class ReferenceBuilder {
 
-		Map<String, CtTypeReference<?>> basestypes = new TreeMap<String, CtTypeReference<?>>();
-
-		Set<String> typevars = new TreeSet<String>();
+		Map<String, CtTypeReference<?>> basestypes = new TreeMap<>();
 
 		boolean bounds = false;
 
@@ -606,7 +604,7 @@ public class JDTTreeBuilder extends ASTVisitor {
 					return ref;
 				}
 			} else {
-				logger.error("unknow VariableBinding " + varbin);
+				logger.error("Unknown VariableBinding " + varbin);
 				return null;
 			}
 		}
@@ -676,34 +674,6 @@ public class JDTTreeBuilder extends ASTVisitor {
 		return ret;
 	}
 
-	/**
-	 * Search the line number corresponding to a specific position
-	 */
-	public static final int searchLineNumber(int[] startLineIndexes,
-			int position) {
-		if (startLineIndexes == null)
-			return 1;
-		int length = startLineIndexes.length;
-		if (length == 0)
-			return 1;
-		int g = 0, d = length - 1;
-		int m = 0, start;
-		while (g <= d) {
-			m = (g + d) / 2;
-			if (position < (start = startLineIndexes[m])) {
-				d = m - 1;
-			} else if (position > start) {
-				g = m + 1;
-			} else {
-				return m + 1;
-			}
-		}
-		if (position < startLineIndexes[m]) {
-			return m + 1;
-		}
-		return m + 2;
-	}
-
 	BuilderContext context = new BuilderContext();
 
 	ParentExiter exiter = new ParentExiter(this);
@@ -711,8 +681,6 @@ public class JDTTreeBuilder extends ASTVisitor {
 	Factory factory;
 
 	ReferenceBuilder references = new ReferenceBuilder();
-
-	public boolean template = false;
 
 	public JDTTreeBuilder(Factory factory) {
 		super();
@@ -1215,7 +1183,7 @@ public class JDTTreeBuilder extends ASTVisitor {
 		case OperatorIds.LESS:
 			return BinaryOperatorKind.LT;
 		case OperatorIds.QUESTIONCOLON:
-			throw new RuntimeException("Unknow operator");
+			throw new RuntimeException("Unknown operator");
 		case OperatorIds.EQUAL:
 			return BinaryOperatorKind.EQ;
 		}
@@ -2280,7 +2248,7 @@ public class JDTTreeBuilder extends ASTVisitor {
 		// toString seems better (see StringLiteralTest)
 		// here there is a contract between JDTTreeBuilder and
 		// DefaultJavaPrettyPrinter:
-		// JDTTreeBuilder si responsible for adding the double quotes
+		// JDTTreeBuilder is responsible for adding the double quotes
 		// s.setValue(new String(stringLiteral.toString()));
 
 		// RP: this is not a good idea but many other usages of the value can be
